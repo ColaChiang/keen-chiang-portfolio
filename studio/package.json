@@ -6,8 +6,7 @@
     "dev": "sanity dev --host 0.0.0.0",
     "build": "sanity build",
     "deploy": "sanity deploy",
-    "import:starter": "sanity datasets import ./seed/ke-en-starter.tar.gz production --missing",
-    "init:history": "sanity exec scripts/initialize-academic-history.ts --with-user-token"
+    "import:starter": "sanity datasets import ./seed/ke-en-starter.tar.gz production --missing"
   },
   "dependencies": {
     "sanity": "^6.0.0",
