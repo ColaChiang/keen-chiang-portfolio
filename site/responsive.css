@@ -387,3 +387,67 @@
   .hero-art-note{padding-left:18px;padding-right:18px}
   .hero-vertical{right:18px}
 }
+
+/* Mobile gallery breathing-room pass: keep art prominent; show the full specifications inside the artwork dialog. */
+@media (max-width:599px){
+  /* Stronger separation between chapters without changing desktop layout. */
+  .section{padding-top:84px;padding-bottom:88px}
+  .section-heading{margin-bottom:38px}
+  .section-intro{margin-top:20px;line-height:2.05}
+  .hero-content{padding-top:38px;padding-bottom:24px}
+  .hero-title-group{margin-top:34px}
+  .hero-description{margin-top:27px}
+  .hero-actions{margin-top:23px}
+
+  /* Read the artist's story as paragraphs, not a dense block. */
+  .about-content{padding:45px 27px 58px}
+  .about-bio{line-height:2.08;margin-bottom:21px}
+  .academic-simple{margin-top:27px}
+  .academic-simple-list{gap:11px}
+
+  /* Awards and exhibitions remain fully visible, but have room to breathe. */
+  .archive-section{padding-top:82px;padding-bottom:88px}
+  .experience-columns{gap:43px}
+  .experience-column-title{margin-bottom:19px}
+  .archive-section .experience-list{gap:13px}
+  .archive-section .experience-item{gap:12px}
+  .experience-note{display:none}
+
+  .manifesto{padding-top:36px;padding-bottom:39px;margin-bottom:12px}
+  .manifesto-center{padding-top:32px;padding-bottom:32px}
+
+  /* One artwork per row in the curated section; more space between images. */
+  .selected-section{padding-top:84px}
+  .feature-primary{margin-bottom:49px}
+  .feature-secondary{gap:44px}
+  .feature-meta{padding-top:16px}
+  .feature-id{font-size:9px}
+  .feature-translations{margin-top:8px}
+
+  /* Two-column archive stays efficient; less text below each artwork.
+     Number + name + Japanese/English remain; classification, dimensions
+     and creation year are all available by tapping the artwork. */
+  .works-section{padding-top:86px}
+  .works-grid{column-gap:18px;row-gap:43px}
+  .work-topline{justify-content:flex-start;margin-top:13px;margin-bottom:6px}
+  .work-topline span:last-child{display:none}
+  .work-title{font-size:15px;line-height:1.6}
+  .work-translations{margin-top:7px;line-height:1.7}
+  .work-caption{display:none}
+  .gallery-end{margin-top:60px}
+
+  /* The travelling elder keeps its charm, but stays a subtle background motif. */
+  .elder-spot{opacity:.55}
+
+  .closing-content{padding:47px 26px 63px}
+}
+@media(min-width:600px) and (max-width:840px){
+  .section{padding-top:86px;padding-bottom:92px}
+  .experience-columns{gap:43px}
+  .archive-section .experience-list{gap:12px}
+  .works-grid{column-gap:21px;row-gap:39px}
+  .work-topline span:last-child{display:none}
+  .work-caption{display:none}
+  .feature-primary{margin-bottom:42px}
+  .feature-secondary{gap:25px}
+}
