@@ -387,3 +387,47 @@
   .hero-art-note{padding-left:18px;padding-right:18px}
   .hero-vertical{right:18px}
 }
+
+/* Small analogue-photo notes scattered between the larger artwork chapters.
+   No forced crop: these photos always use their natural portrait ratio. */
+.journey-inset{
+  position:relative;
+  display:flex;
+  align-items:flex-start;
+  width:calc(100% - 80px);
+  max-width:1110px;
+  margin:18px auto 10px;
+  padding:0;
+  overflow:visible;
+}
+.journey-inset--sand{justify-content:flex-start;padding-left:10%}
+.journey-inset--bus{justify-content:flex-end;padding-right:10%;margin-top:-42px;margin-bottom:63px}
+.journey-inset-picture{width:260px;max-width:100%;min-width:0}
+.journey-inset img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:100%;
+  object-fit:contain;
+  object-position:center;
+  box-shadow:0 9px 25px rgba(40,39,33,.06);
+}
+.journey-inset figcaption{
+  font-family:var(--sans);
+  font-size:9px;
+  letter-spacing:.18em;
+  line-height:1.8;
+  margin-top:11px;
+  color:#91958b;
+}
+.journey-inset--bus figcaption{text-align:right}
+@media(max-width:840px){
+  .journey-inset{width:calc(100% - 36px);max-width:680px;margin-top:14px}
+  .journey-inset-picture{width:min(66vw,230px)}
+  .journey-inset--sand{padding-left:6%;margin-bottom:-23px}
+  .journey-inset--bus{padding-right:7%;margin-top:-20px;margin-bottom:48px}
+  .journey-inset figcaption{font-size:8px;margin-top:9px}
+}
+@media(max-width:359px){
+  .journey-inset-picture{width:min(64vw,210px)}
+}
