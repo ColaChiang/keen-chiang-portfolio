@@ -268,6 +268,10 @@
   const mobileToggle = $('#mobile-toggle'), mobileNav = $('#mobile-nav');
   function setMenuOpen(open){mobileToggle.setAttribute('aria-expanded',String(open));mobileToggle.setAttribute('aria-label',open?'關閉導覽選單':'開啟導覽選單');mobileNav.hidden=!open;}
   mobileToggle.addEventListener('click',()=>setMenuOpen(mobileNav.hidden));
+  // Tap outside the expanded menu to dismiss it on a phone.
+  document.addEventListener('pointerdown', event => {
+    if (!mobileNav.hidden && !event.target.closest('#mobile-nav, #mobile-toggle')) setMenuOpen(false);
+  });
   $$('#mobile-nav a').forEach(a=>a.addEventListener('click',()=>setMenuOpen(false)));
   document.addEventListener('keydown',e=>{if(e.key==='Escape' && !mobileNav.hidden)setMenuOpen(false);});
   window.addEventListener('resize',()=>{if(window.innerWidth>840 && !mobileNav.hidden)setMenuOpen(false);});

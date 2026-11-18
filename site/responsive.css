@@ -15,8 +15,8 @@
   .brand-roman{letter-spacing:.08em;padding-left:11px}
 }
 @media(max-width:840px){
-  html{scroll-padding-top:72px}
-  .site-header{height:66px;min-height:66px}
+  html{scroll-padding-top:calc(72px + env(safe-area-inset-top))}
+  .site-header{height:calc(66px + env(safe-area-inset-top));min-height:calc(66px + env(safe-area-inset-top));padding-top:env(safe-area-inset-top)}
   .site-header-inner{
     min-width:0;
     padding-left:max(18px,env(safe-area-inset-left));
@@ -32,7 +32,7 @@
   .mobile-toggle span{width:24px}
   .mobile-nav{
     top:100%;left:0;right:0;
-    max-height:calc(100dvh - 66px);
+    max-height:calc(100dvh - 66px - env(safe-area-inset-top));
     overflow-y:auto;overscroll-behavior:contain;
     padding:12px max(20px,env(safe-area-inset-left)) calc(20px + env(safe-area-inset-bottom));
     box-shadow:0 15px 24px rgba(41,45,39,.08);
