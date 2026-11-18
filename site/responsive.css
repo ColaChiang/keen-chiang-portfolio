@@ -74,7 +74,9 @@
   .about-content{padding:34px 23px 48px}
   .about-section h2{font-size:clamp(29px,6vw,39px);line-height:1.45;margin:12px 0 22px}
   .about-content h3{font-size:clamp(23px,5vw,29px);line-height:1.55;margin:0 0 22px}
-  .about-content h3 span{font-size:12px;letter-spacing:.01em;overflow-wrap:anywhere}
+  /* Keep the Japanese name beside the Chinese name on phones, with one natural gap. */
+  #artist-name{white-space:nowrap}
+  #artist-name span{display:inline;margin-left:.45em;font-size:12px;letter-spacing:.01em;white-space:nowrap}
   .about-bio{font-size:15px;line-height:1.95;letter-spacing:.01em;margin-bottom:15px}
   .about-divider{margin:25px 0 20px}
   .profile-facts>div{gap:.45em;align-items:baseline}
