@@ -1,0 +1,461 @@
+{
+  "work-01": {
+    "source_page": 6,
+    "source_image_xref": 496,
+    "size": [
+      512,
+      512
+    ],
+    "file": "assets/work-01.webp"
+  },
+  "work-02": {
+    "source_page": 6,
+    "source_image_xref": 497,
+    "size": [
+      915,
+      447
+    ],
+    "file": "assets/work-02.webp"
+  },
+  "work-03": {
+    "source_page": 7,
+    "source_image_xref": 506,
+    "size": [
+      326,
+      321
+    ],
+    "file": "assets/work-03.webp"
+  },
+  "work-04": {
+    "source_page": 7,
+    "source_image_xref": 504,
+    "size": [
+      757,
+      541
+    ],
+    "file": "assets/work-04.webp"
+  },
+  "work-04-detail-1": {
+    "source_page": 7,
+    "source_image_xref": 505,
+    "size": [
+      865,
+      1211
+    ],
+    "file": "assets/work-04-detail-1.webp"
+  },
+  "work-05": {
+    "source_page": 8,
+    "source_image_xref": 511,
+    "size": [
+      605,
+      807
+    ],
+    "file": "assets/work-05.webp"
+  },
+  "work-05-detail-1": {
+    "source_page": 8,
+    "source_image_xref": 512,
+    "size": [
+      1210,
+      908
+    ],
+    "file": "assets/work-05-detail-1.webp"
+  },
+  "work-05-detail-2": {
+    "source_page": 8,
+    "source_image_xref": 513,
+    "size": [
+      807,
+      605
+    ],
+    "file": "assets/work-05-detail-2.webp"
+  },
+  "work-05-detail-3": {
+    "source_page": 8,
+    "source_image_xref": 514,
+    "size": [
+      757,
+      541
+    ],
+    "file": "assets/work-05-detail-3.webp"
+  },
+  "work-06": {
+    "source_page": 10,
+    "source_image_xref": 525,
+    "size": [
+      611,
+      671
+    ],
+    "file": "assets/work-06.webp"
+  },
+  "work-06-detail-1": {
+    "source_page": 10,
+    "source_image_xref": 527,
+    "size": [
+      384,
+      385
+    ],
+    "file": "assets/work-06-detail-1.webp"
+  },
+  "work-06-detail-2": {
+    "source_page": 10,
+    "source_image_xref": 524,
+    "size": [
+      787,
+      1400
+    ],
+    "file": "assets/work-06-detail-2.webp"
+  },
+  "work-07": {
+    "source_page": 11,
+    "source_image_xref": 533,
+    "size": [
+      1479,
+      1109
+    ],
+    "file": "assets/work-07.webp"
+  },
+  "work-07-detail-1": {
+    "source_page": 12,
+    "source_image_xref": 538,
+    "size": [
+      850,
+      482
+    ],
+    "file": "assets/work-07-detail-1.webp"
+  },
+  "work-07-detail-2": {
+    "source_page": 12,
+    "source_image_xref": 540,
+    "size": [
+      333,
+      444
+    ],
+    "file": "assets/work-07-detail-2.webp"
+  },
+  "work-08": {
+    "source_page": 13,
+    "source_image_xref": 551,
+    "size": [
+      887,
+      665
+    ],
+    "file": "assets/work-08.webp"
+  },
+  "work-08-detail-1": {
+    "source_page": 13,
+    "source_image_xref": 548,
+    "size": [
+      592,
+      444
+    ],
+    "file": "assets/work-08-detail-1.webp"
+  },
+  "work-08-detail-2": {
+    "source_page": 13,
+    "source_image_xref": 549,
+    "size": [
+      444,
+      592
+    ],
+    "file": "assets/work-08-detail-2.webp"
+  },
+  "work-09": {
+    "source_page": 14,
+    "source_image_xref": 557,
+    "size": [
+      833,
+      573
+    ],
+    "file": "assets/work-09.webp"
+  },
+  "work-10": {
+    "source_page": 14,
+    "source_image_xref": 558,
+    "size": [
+      865,
+      1211
+    ],
+    "file": "assets/work-10.webp"
+  },
+  "work-11": {
+    "source_page": 15,
+    "source_image_xref": 564,
+    "size": [
+      645,
+      1600
+    ],
+    "file": "assets/work-11.webp"
+  },
+  "work-12": {
+    "source_page": 16,
+    "source_image_xref": 574,
+    "size": [
+      757,
+      541
+    ],
+    "file": "assets/work-12.webp"
+  },
+  "work-12-detail-1": {
+    "source_page": 16,
+    "source_image_xref": 575,
+    "size": [
+      325,
+      455
+    ],
+    "file": "assets/work-12-detail-1.webp"
+  },
+  "work-12-detail-2": {
+    "source_page": 16,
+    "source_image_xref": 571,
+    "size": [
+      757,
+      541
+    ],
+    "file": "assets/work-12-detail-2.webp"
+  },
+  "work-12-detail-3": {
+    "source_page": 17,
+    "source_image_xref": 583,
+    "size": [
+      592,
+      444
+    ],
+    "file": "assets/work-12-detail-3.webp"
+  },
+  "work-12-detail-4": {
+    "source_page": 17,
+    "source_image_xref": 587,
+    "size": [
+      606,
+      433
+    ],
+    "file": "assets/work-12-detail-4.webp"
+  },
+  "work-13": {
+    "source_page": 18,
+    "source_image_xref": 594,
+    "size": [
+      444,
+      591
+    ],
+    "file": "assets/work-13.webp"
+  },
+  "work-13-detail-1": {
+    "source_page": 18,
+    "source_image_xref": 593,
+    "size": [
+      444,
+      592
+    ],
+    "file": "assets/work-13-detail-1.webp"
+  },
+  "work-14": {
+    "source_page": 19,
+    "source_image_xref": 602,
+    "size": [
+      672,
+      1195
+    ],
+    "file": "assets/work-14.webp"
+  },
+  "work-14-detail-1": {
+    "source_page": 19,
+    "source_image_xref": 603,
+    "size": [
+      887,
+      1182
+    ],
+    "file": "assets/work-14-detail-1.webp"
+  },
+  "work-15": {
+    "source_page": 20,
+    "source_image_xref": 611,
+    "size": [
+      578,
+      710
+    ],
+    "file": "assets/work-15.webp"
+  },
+  "work-16": {
+    "source_page": 20,
+    "source_image_xref": 609,
+    "size": [
+      448,
+      914
+    ],
+    "file": "assets/work-16.webp"
+  },
+  "work-17": {
+    "source_page": 21,
+    "source_image_xref": 616,
+    "size": [
+      642,
+      638
+    ],
+    "file": "assets/work-17.webp"
+  },
+  "work-18": {
+    "source_page": 21,
+    "source_image_xref": 617,
+    "size": [
+      913,
+      912
+    ],
+    "file": "assets/work-18.webp"
+  },
+  "work-19": {
+    "source_page": 22,
+    "source_image_xref": 625,
+    "size": [
+      1534,
+      866
+    ],
+    "file": "assets/work-19.webp"
+  },
+  "work-19-detail-1": {
+    "source_page": 22,
+    "source_image_xref": 624,
+    "size": [
+      686,
+      382
+    ],
+    "file": "assets/work-19-detail-1.webp"
+  },
+  "work-20": {
+    "source_page": 22,
+    "source_image_xref": 623,
+    "size": [
+      845,
+      1255
+    ],
+    "file": "assets/work-20.webp"
+  },
+  "work-21": {
+    "source_page": 23,
+    "source_image_xref": 631,
+    "size": [
+      709,
+      1600
+    ],
+    "file": "assets/work-21.webp"
+  },
+  "work-21-detail-1": {
+    "source_page": 23,
+    "source_image_xref": 632,
+    "size": [
+      444,
+      592
+    ],
+    "file": "assets/work-21-detail-1.webp"
+  },
+  "work-21-detail-2": {
+    "source_page": 23,
+    "source_image_xref": 633,
+    "size": [
+      444,
+      592
+    ],
+    "file": "assets/work-21-detail-2.webp"
+  },
+  "work-22": {
+    "source_page": 24,
+    "source_image_xref": 639,
+    "size": [
+      459,
+      899
+    ],
+    "file": "assets/work-22.webp"
+  },
+  "work-23": {
+    "source_page": 24,
+    "source_image_xref": 640,
+    "size": [
+      509,
+      515
+    ],
+    "file": "assets/work-23.webp"
+  },
+  "work-24": {
+    "source_page": 24,
+    "source_image_xref": 641,
+    "size": [
+      456,
+      576
+    ],
+    "file": "assets/work-24.webp"
+  },
+  "work-25": {
+    "source_page": 25,
+    "source_image_xref": 647,
+    "size": [
+      879,
+      466
+    ],
+    "file": "assets/work-25.webp"
+  },
+  "work-25-detail-1": {
+    "source_page": 25,
+    "source_image_xref": 648,
+    "size": [
+      615,
+      461
+    ],
+    "file": "assets/work-25-detail-1.webp"
+  },
+  "work-25-detail-2": {
+    "source_page": 25,
+    "source_image_xref": 649,
+    "size": [
+      615,
+      461
+    ],
+    "file": "assets/work-25-detail-2.webp"
+  },
+  "work-25-detail-3": {
+    "source_page": 25,
+    "source_image_xref": 650,
+    "size": [
+      615,
+      461
+    ],
+    "file": "assets/work-25-detail-3.webp"
+  },
+  "work-26": {
+    "source_page": 26,
+    "source_image_xref": 658,
+    "size": [
+      384,
+      384
+    ],
+    "file": "assets/work-26.webp"
+  },
+  "work-26-detail-1": {
+    "source_page": 26,
+    "source_image_xref": 657,
+    "size": [
+      256,
+      256
+    ],
+    "file": "assets/work-26-detail-1.webp"
+  },
+  "work-26-detail-2": {
+    "source_page": 26,
+    "source_image_xref": 659,
+    "size": [
+      234,
+      281
+    ],
+    "file": "assets/work-26-detail-2.webp"
+  },
+  "work-26-detail-3": {
+    "source_page": 26,
+    "source_image_xref": 660,
+    "size": [
+      157,
+      418
+    ],
+    "file": "assets/work-26-detail-3.webp"
+  }
+}

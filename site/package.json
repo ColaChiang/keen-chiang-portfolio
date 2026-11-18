@@ -1,0 +1,9 @@
+{
+  "name": "chiang-ke-en-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "node dev-server.mjs"
+  }
+}
