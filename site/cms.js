@@ -16,7 +16,9 @@ window.loadPortfolio = async function loadPortfolio() {
       _id, year, text, kind, sortOrder, displayOrder, showOnWebsite
     },
     "artist": *[_type == "artistProfile" && _id == "artist-profile"][0] {
-      nameZh, nameEn, nameJa, bioZh, bioJa, practice, education, exchange, contact,
+      nameZh, nameEn, nameJa, bioZh, bioJa, practice, contact,
+      educationHistory[]{school, program, programJa, degree, period},
+      exchangeHistory[]{school, program, programJa, degree, period},
       "portrait": portrait.asset->url
     }
   }`;
@@ -43,7 +45,14 @@ window.loadPortfolio = async function loadPortfolio() {
       ...local,
       works,
       experiences: (r.experiences || []).map(e => ({_id: e._id, year: e.year, text: e.text, kind: e.kind, sortOrder: e.sortOrder, displayOrder: e.displayOrder, showOnWebsite: e.showOnWebsite})),
-      artist: r.artist || local.artist,
+      artist: r.artist ? {
+        ...local.artist,
+        ...r.artist,
+        educationHistory: Array.isArray(r.artist.educationHistory)
+          ? r.artist.educationHistory : local.artist.educationHistory,
+        exchangeHistory: Array.isArray(r.artist.exchangeHistory)
+          ? r.artist.exchangeHistory : local.artist.exchangeHistory
+      } : local.artist,
       source: 'sanity'
     };
   } catch (err) {

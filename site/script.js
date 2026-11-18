@@ -27,7 +27,7 @@
     return w.titleEn ? `<span class="${className}" lang="en">${h(w.titleEn)}</span>` : '';
   }
 
-  // About: editors may change bio, portrait, practice, education and exchange directly in Sanity.
+  // About: the biography and repeatable academic/visiting-research history come from Sanity.
   const artist = data.artist || {};
   const portrait = $('.about-portrait img');
   if (artist.portrait && portrait) portrait.src = artist.portrait;
@@ -61,9 +61,29 @@
       }
     }
   }
-  for (const [id,key] of [['artist-practice','practice'],['artist-education','education'],['artist-exchange','exchange']]) {
-    if ($( '#' + id) && artist[key]) $('#' + id).textContent = artist[key];
+  if ($('#artist-practice') && artist.practice) $('#artist-practice').textContent = artist.practice;
+
+  // Academic records are editable, draggable items in Sanity.
+  function renderAcademicHistory(selector, records) {
+    const list = $(selector);
+    if (!list || !Array.isArray(records)) return;
+    list.innerHTML = records.map(item => {
+      const school = h(item.school || '');
+      const program = h(item.program || '');
+      const degree = h(item.degree || '');
+      const period = h(item.period || '');
+      const ja = item.programJa
+        ? `<span class="academic-history-program-ja" lang="ja">${h(item.programJa)}</span>` : '';
+      return `<li class="academic-history-item">
+        <strong>${school}</strong>
+        ${program ? `<span class="academic-history-program">${program}</span>` : ''}
+        ${ja}
+        <p class="academic-history-meta">${degree ? `<span>${degree}</span>` : ''}${period ? `<time>${period}</time>` : ''}</p>
+      </li>`;
+    }).join('');
   }
+  renderAcademicHistory('#artist-education-history', artist.educationHistory);
+  renderAcademicHistory('#artist-exchange-history', artist.exchangeHistory);
   if ($('#artist-contact')) {
     $('#artist-contact').hidden = !artist.contact;
     if (artist.contact) $('#artist-contact').textContent = `聯絡：${artist.contact}`;

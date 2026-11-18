@@ -422,3 +422,31 @@ img{display:block;max-width:100%}
   .archive-section .experience-year{flex-basis:35px;width:35px;font-size:10px}
   .archive-section .experience-text{font-size:12px;line-height:1.8}
 }
+
+
+/* Artist education and visiting-research chronology, kept intentionally compact. */
+.about-section .profile-facts>div{margin-bottom:0}
+.academic-history{max-width:510px;margin-top:23px;display:grid;gap:24px}
+.academic-history-group{min-width:0}
+.academic-history-group h4{display:flex;align-items:baseline;flex-wrap:wrap;gap:10px;margin:0 0 13px;padding-bottom:8px;border-bottom:1px solid #cdd0c7;font-family:var(--serif);font-size:15px;font-weight:500;letter-spacing:.08em;color:#525a51}
+.academic-history-group h4 span{font-family:var(--sans);font-size:9px;font-weight:400;letter-spacing:.16em;color:#939b90}
+.academic-history-list{list-style:none;margin:0;padding:0 0 0 13px;border-left:1px solid #c9cec6}
+.academic-history-item{position:relative;padding:0 0 13px 13px;margin:0;min-width:0}
+.academic-history-item:last-child{padding-bottom:0}
+.academic-history-item::before{content:"";position:absolute;left:-4px;top:7px;width:6px;height:6px;border-radius:50%;background:#89978a}
+.academic-history-item strong{display:block;font-family:var(--serif);font-size:13px;line-height:1.7;color:#343f38;font-weight:500;letter-spacing:.035em}
+.academic-history-program{display:block;font-family:var(--serif);font-size:12px;line-height:1.75;color:#5c675f;overflow-wrap:anywhere}
+.academic-history-program-ja{display:block;font-family:var(--serif);font-size:10px;line-height:1.65;letter-spacing:.02em;color:#889186;overflow-wrap:anywhere}
+.academic-history-meta{display:flex;align-items:baseline;gap:8px 15px;flex-wrap:wrap;margin:5px 0 0;font-family:var(--sans);font-size:10px;line-height:1.7;letter-spacing:.035em;color:#7e8980}
+.academic-history-meta time{font-variant-numeric:tabular-nums;white-space:nowrap}
+@media(min-width:841px){
+  .about-section{align-items:stretch}
+  .about-section .about-portrait{height:auto;min-height:740px}
+  .about-section .about-content{padding-bottom:64px}
+}
+@media(max-width:840px){
+  .academic-history{max-width:100%;gap:25px}
+  .academic-history-group h4{font-size:16px}
+  .academic-history-item strong{font-size:14px}
+  .academic-history-program{font-size:13px}
+}
