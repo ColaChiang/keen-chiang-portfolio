@@ -490,7 +490,7 @@
 .feature-secondary .feature-image-narrow{
   display:block;
   aspect-ratio:auto;
-  padding:clamp(4px,.55vw,7px);
+  padding:0;
 }
 .feature-image img,
 .feature-primary .feature-image img,
@@ -507,5 +507,5 @@
   .feature-image,
   .feature-primary .feature-image,
   .feature-secondary .feature-image,
-  .feature-secondary .feature-image-narrow{padding:4px}
+  .feature-secondary .feature-image-narrow{padding:0}
 }
