@@ -7,7 +7,7 @@ window.loadPortfolio = async function loadPortfolio() {
   }
   const query = `{
     "works": *[_type == "artwork"] | order(sortOrder asc, _createdAt asc) {
-      _id, legacyId, displayNumber, titleZh, titleJa, titleEn, mediumZh, mediumJa,
+      _id, legacyId, displayNumber, orderRank, titleZh, titleJa, titleEn, mediumZh, mediumJa,
       size, year, category, sortOrder, featured, hero,
       "mainImageUrl": mainImage.asset->url,
       "detailImageUrls": detailImages[].asset->url
@@ -29,8 +29,17 @@ window.loadPortfolio = async function loadPortfolio() {
     const payload = await response.json();
     if (!payload || !payload.result || !Array.isArray(payload.result.works)) throw new Error('Content API invalid response');
     const r = payload.result;
-    const works = r.works
-      .filter(w => w.mainImageUrl)
+    // Keep the current numeric sort while legacy artworks lack manual ranks.
+    // Once each published artwork has a rank, drag-and-drop order takes over.
+    const visibleWorks = r.works.filter(w => w.mainImageUrl);
+    const fullyRanked = visibleWorks.length > 0 && visibleWorks.every(
+      w => typeof w.orderRank === 'string' && w.orderRank.trim()
+    );
+    if (fullyRanked) {
+      // LexoRank compares by ASCII key, not the user's browser locale.
+      visibleWorks.sort((a, b) => a.orderRank < b.orderRank ? -1 : a.orderRank > b.orderRank ? 1 : 0);
+    }
+    const works = visibleWorks
       .map(w => ({
         ...w,
         id: String(w.legacyId || w._id),

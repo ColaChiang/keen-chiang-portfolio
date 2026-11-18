@@ -108,7 +108,7 @@
     if (!w) return '';
     return `<button class="feature-item ${index === 0 ? 'feature-primary' : ''}" type="button" data-open-work="${h(w.id)}" aria-label="查看作品 ${h(title(w))}">
       <div class="feature-image ${index === 2 ? 'feature-image-narrow' : ''}"><img src="${h(photo(asImages(w)[0]))}" alt="作品《${h(title(w))}》" loading="lazy"></div>
-      <div class="feature-meta"><span class="feature-id">${String(index+1).padStart(2,'0')} / FEATURED</span>
+      <div class="feature-meta"><span class="feature-id">NO. ${h(formatNumber(w))} / FEATURED</span>
       <span class="feature-name">${h(title(w))}${translationsHTML(w,'feature-translations')}</span>
       <span class="feature-arrow" aria-hidden="true">↗</span></div>
     </button>`;
