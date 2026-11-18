@@ -757,29 +757,7 @@ window.PORTFOLIO_DATA = {
     "practice": "水墨・墨彩・膠彩・複合媒材",
     "education": "國立臺灣藝術大學 書畫藝術學系",
     "exchange": "日本・筑波大學 藝術學學位學程 特別研究學生",
-    "educationHistory": [
-      {
-        "school": "國立臺灣藝術大學",
-        "program": "書畫藝術學系",
-        "degree": "碩士",
-        "period": "2024.09 — 就讀中"
-      },
-      {
-        "school": "國立臺灣藝術大學",
-        "program": "書畫藝術學系",
-        "degree": "學士",
-        "period": "2020.09 — 2024.06"
-      }
-    ],
-    "exchangeHistory": [
-      {
-        "school": "日本・筑波大學",
-        "program": "人間綜合科學研究群・藝術學學位學程",
-        "programJa": "人間総合科学研究群・芸術学学位プログラム",
-        "degree": "特別研究學生",
-        "period": "2026.09 — 2027.09"
-      }
-    ],
+    "academicSummary": "臺灣 國立臺灣藝術大學 書畫藝術學系 學士（2020.09～2024.06）\n臺灣 國立臺灣藝術大學 書畫藝術學系 碩士（2024.09～就讀中）\n日本 筑波大學 藝術學學位學程 特別研究學生（2026.09～2027.09）",
     "portrait": "assets/artist-portrait.webp",
     "contact": ""
   }

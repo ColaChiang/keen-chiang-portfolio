@@ -27,7 +27,7 @@
     return w.titleEn ? `<span class="${className}" lang="en">${h(w.titleEn)}</span>` : '';
   }
 
-  // About: the biography and repeatable academic/visiting-research history come from Sanity.
+  // About: one editable multiline academic history field in Sanity.
   const artist = data.artist || {};
   const portrait = $('.about-portrait img');
   if (artist.portrait && portrait) portrait.src = artist.portrait;
@@ -63,27 +63,20 @@
   }
   if ($('#artist-practice') && artist.practice) $('#artist-practice').textContent = artist.practice;
 
-  // Academic records are editable, draggable items in Sanity.
-  function renderAcademicHistory(selector, records) {
-    const list = $(selector);
-    if (!list || !Array.isArray(records)) return;
-    list.innerHTML = records.map(item => {
-      const school = h(item.school || '');
-      const program = h(item.program || '');
-      const degree = h(item.degree || '');
-      const period = h(item.period || '');
-      const ja = item.programJa
-        ? `<span class="academic-history-program-ja" lang="ja">${h(item.programJa)}</span>` : '';
-      return `<li class="academic-history-item">
-        <strong>${school}</strong>
-        ${program ? `<span class="academic-history-program">${program}</span>` : ''}
-        ${ja}
-        <p class="academic-history-meta">${degree ? `<span>${degree}</span>` : ''}${period ? `<time>${period}</time>` : ''}</p>
-      </li>`;
-    }).join('');
+  // Each non-empty line in Sanity's academic text box is one list entry.
+  const academicSummary = typeof artist.academicSummary === 'string' && artist.academicSummary.trim()
+    ? artist.academicSummary
+    : (data.artist?.academicSummary || '');
+  const academicList = $('#artist-academic-lines');
+  if (academicList) {
+    academicList.replaceChildren(...academicSummary.split('\n')
+      .map(line => line.trim()).filter(Boolean)
+      .map(line => {
+        const item = document.createElement('li');
+        item.textContent = line;
+        return item;
+      }));
   }
-  renderAcademicHistory('#artist-education-history', artist.educationHistory);
-  renderAcademicHistory('#artist-exchange-history', artist.exchangeHistory);
   if ($('#artist-contact')) {
     $('#artist-contact').hidden = !artist.contact;
     if (artist.contact) $('#artist-contact').textContent = `聯絡：${artist.contact}`;

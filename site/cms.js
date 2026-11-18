@@ -16,9 +16,7 @@ window.loadPortfolio = async function loadPortfolio() {
       _id, year, text, kind, sortOrder, displayOrder, showOnWebsite
     },
     "artist": *[_type == "artistProfile" && _id == "artist-profile"][0] {
-      nameZh, nameEn, nameJa, bioZh, bioJa, practice, contact,
-      educationHistory[]{school, program, programJa, degree, period},
-      exchangeHistory[]{school, program, programJa, degree, period},
+      nameZh, nameEn, nameJa, bioZh, bioJa, practice, contact, academicSummary,
       "portrait": portrait.asset->url
     }
   }`;
@@ -48,10 +46,8 @@ window.loadPortfolio = async function loadPortfolio() {
       artist: r.artist ? {
         ...local.artist,
         ...r.artist,
-        educationHistory: Array.isArray(r.artist.educationHistory)
-          ? r.artist.educationHistory : local.artist.educationHistory,
-        exchangeHistory: Array.isArray(r.artist.exchangeHistory)
-          ? r.artist.exchangeHistory : local.artist.exchangeHistory
+        academicSummary: typeof r.artist.academicSummary === 'string' && r.artist.academicSummary.trim()
+          ? r.artist.academicSummary : local.artist.academicSummary
       } : local.artist,
       source: 'sanity'
     };
