@@ -43,7 +43,6 @@ img{display:block;max-width:100%}
 .hero-title-group{margin-top:clamp(60px,9vh,125px)}
 .hero-subtitle{font-size:13px;letter-spacing:.5em;color:var(--soft-ink);margin:0 0 11px 6px;font-family:var(--serif)}
 .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(67px,8.55vw,137px);white-space:nowrap;letter-spacing:.19em;line-height:1.45;margin:0;transform:translateX(-3px)}
-.hero h1>span{color:#85877c}
 .hero-title-roman{letter-spacing:.33em;font-size:13px;margin:2px 0 0 8px;font-weight:500;color:var(--soft-ink)}
 .hero-title-roman span{color:var(--accent);padding:0 4px}
 .hero-description{font-family:var(--serif);font-size:clamp(16px,1.38vw,20px);letter-spacing:.09em;line-height:2.3;margin:clamp(31px,6vh,61px) 0 0 7px}
@@ -431,3 +430,14 @@ img{display:block;max-width:100%}
 .academic-simple-list{list-style:none;padding:0;margin:0;display:grid;gap:6px}
 .academic-simple-list li{font-family:var(--serif);font-size:12px;line-height:1.85;letter-spacing:.015em;color:#525a54;overflow-wrap:anywhere}
 @media(max-width:840px){.academic-simple-list li{font-size:13px;line-height:1.85}}
+
+/* Homepage social link: understated pairing with the artist introduction. */
+.hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:16px 30px;margin:33px 0 0 7px}
+.hero .hero-actions .text-action{margin:0}
+.hero .hero-actions .instagram-action{font-size:12px;color:var(--soft-ink);border-bottom-color:var(--hairline)}
+.hero .hero-actions .instagram-action:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.footer-instagram{font-size:10px;letter-spacing:.08em;color:#737b70;white-space:nowrap;transition:color .2s}
+.footer-instagram:hover{color:var(--accent)}
+@media(max-width:840px){
+  .hero-actions{margin-top:20px;gap:14px 24px}
+}
