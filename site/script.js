@@ -85,7 +85,7 @@
   }
   if ($('#artist-contact')) {
     $('#artist-contact').hidden = !artist.contact;
-    if (artist.contact) $('#artist-contact').textContent = `聯絡：${artist.contact}`;
+    if (artist.contact) $('#artist-contact').textContent = artist.contact;
   }
 
   // Featured works and hero image follow the checkboxes set in the CMS.
