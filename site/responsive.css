@@ -265,3 +265,12 @@
 @media(prefers-reduced-motion:reduce){
   .feature-image img,.work-image img{transition:none}
 }
+
+/* Final journey photo: preserve the uploaded street scene's natural warm colors. */
+.closing-illustration--street img{
+  filter:none;
+  object-position:50% 56%;
+}
+@media(max-width:840px){
+  .closing-illustration--street img{object-position:51% 61%}
+}
