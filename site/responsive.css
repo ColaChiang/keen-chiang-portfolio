@@ -453,3 +453,30 @@
   .feature-primary{margin-bottom:42px}
   .feature-secondary{gap:25px}
 }
+
+
+/* Gentle artwork staggering, without changing row-first reading order. */
+/* Desktop gallery: three artworks per row, with subtle asymmetrical starts. */
+@media(min-width:1041px){
+  .works-grid > .work-card:nth-child(3n + 2){margin-top:45px}
+  .works-grid > .work-card:nth-child(3n + 3){margin-top:20px}
+}
+/* Compact desktop: two artworks per row, alternating the lower card. */
+@media(min-width:841px) and (max-width:1040px){
+  .works-grid > .work-card:nth-child(4n + 2){margin-top:34px}
+  .works-grid > .work-card:nth-child(4n + 3){margin-top:18px}
+}
+/* Tablet: keep the three-column order but soften the offsets. */
+@media(min-width:600px) and (max-width:840px){
+  .works-grid > .work-card:nth-child(3n + 2){margin-top:28px}
+  .works-grid > .work-card:nth-child(3n + 3){margin-top:12px}
+}
+/* Phones: a little visual rhythm, not enough to crowd the next row. */
+@media(min-width:360px) and (max-width:599px){
+  .works-grid > .work-card:nth-child(4n + 2){margin-top:17px}
+  .works-grid > .work-card:nth-child(4n + 3){margin-top:11px}
+}
+/* Very narrow phones have a single column and no stagger. */
+@media(max-width:359px){
+  .works-grid > .work-card{margin-top:0}
+}
