@@ -129,13 +129,48 @@
     </button>
   </article>`).join('') : '<p class="works-empty">目前尚未發布作品。</p>';
 
+  // Natural masonry layout with row-major numbering:
+  // 01, 02, 03 across the top; 04 continues below 01, 05 below 02, etc.
+  // Each column stacks independently, like the original portfolio.
+  // Keep one DOM node per artwork so opening the details remains unchanged.
+  const galleryCards = $$('.work-card', grid);
   const filterButtons = $$('.work-filters button');
+  let activeGalleryFilter = 'all';
+  let galleryColumnCount = 0;
+  const columnsForWidth = () => {
+    const width = window.innerWidth;
+    if (width < 360) return 1;
+    if (width < 600) return 2;
+    if (width <= 840) return 3;
+    if (width <= 1040) return 2;
+    return 3;
+  };
+  function arrangeGalleryColumns() {
+    if (!galleryCards.length) return; // retain the empty-state message
+    const columnCount = columnsForWidth();
+    const columns = Array.from({length:columnCount}, () => {
+      const column = document.createElement('div');
+      column.className = 'work-column';
+      return column;
+    });
+    galleryCards
+      .filter(card => activeGalleryFilter === 'all' || card.dataset.category === activeGalleryFilter)
+      .forEach((card, index) => columns[index % columnCount].appendChild(card));
+    grid.replaceChildren(...columns);
+    galleryColumnCount = columnCount;
+  }
+  arrangeGalleryColumns();
   function setFilter(value, selectedButton) {
+    activeGalleryFilter = value;
+    arrangeGalleryColumns();
     const count = value === 'all' ? works.length : works.filter(w => w.category === value).length;
     filterButtons.forEach(button => button.setAttribute('aria-pressed', String(button === selectedButton)));
-    $$('.work-card', grid).forEach(card => card.hidden = value !== 'all' && card.dataset.category !== value);
     $('#gallery-count').textContent = `${count} ${count === 1 ? 'WORK' : 'WORKS'}`;
   }
+  window.addEventListener('resize', () => {
+    // Re-arrange only when changing between 1, 2 and 3 gallery columns.
+    if (galleryCards.length && columnsForWidth() !== galleryColumnCount) arrangeGalleryColumns();
+  }, {passive:true});
   filterButtons.forEach(button => {
     const filter = button.dataset.filter;
     const count = filter === 'all' ? works.length : works.filter(w => w.category === filter).length;

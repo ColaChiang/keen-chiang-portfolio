@@ -455,28 +455,28 @@
 }
 
 
-/* Gentle artwork staggering, without changing row-first reading order. */
-/* Desktop gallery: three artworks per row, with subtle asymmetrical starts. */
-@media(min-width:1041px){
-  .works-grid > .work-card:nth-child(3n + 2){margin-top:45px}
-  .works-grid > .work-card:nth-child(3n + 3){margin-top:20px}
+/* Flowing masonry: picture heights create the stagger naturally, with no
+   artificial top offsets. JS assigns the first artwork to column 1, the
+   second to column 2, and so on, then continues from column 1. */
+@media(max-width:840px){
+  .work-column{gap:32px}
+  .work-image{aspect-ratio:auto;min-height:100px}
+  .work-image img{
+    display:block;
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:340px;
+    object-fit:contain;
+    object-position:center;
+  }
 }
-/* Compact desktop: two artworks per row, alternating the lower card. */
-@media(min-width:841px) and (max-width:1040px){
-  .works-grid > .work-card:nth-child(4n + 2){margin-top:34px}
-  .works-grid > .work-card:nth-child(4n + 3){margin-top:18px}
+@media(max-width:599px){
+  .work-column{gap:43px}
 }
-/* Tablet: keep the three-column order but soften the offsets. */
-@media(min-width:600px) and (max-width:840px){
-  .works-grid > .work-card:nth-child(3n + 2){margin-top:28px}
-  .works-grid > .work-card:nth-child(3n + 3){margin-top:12px}
-}
-/* Phones: a little visual rhythm, not enough to crowd the next row. */
-@media(min-width:360px) and (max-width:599px){
-  .works-grid > .work-card:nth-child(4n + 2){margin-top:17px}
-  .works-grid > .work-card:nth-child(4n + 3){margin-top:11px}
-}
-/* Very narrow phones have a single column and no stagger. */
 @media(max-width:359px){
-  .works-grid > .work-card{margin-top:0}
+  .work-column{gap:28px}
+}
+@media(min-width:600px) and (max-width:840px){
+  .work-column{gap:31px}
 }
