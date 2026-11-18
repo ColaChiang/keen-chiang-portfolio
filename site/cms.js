@@ -7,7 +7,7 @@ window.loadPortfolio = async function loadPortfolio() {
   }
   const query = `{
     "works": *[_type == "artwork"] | order(sortOrder asc, _createdAt asc) {
-      _id, legacyId, titleZh, titleJa, titleEn, mediumZh, mediumJa,
+      _id, legacyId, displayNumber, titleZh, titleJa, titleEn, mediumZh, mediumJa,
       size, year, category, sortOrder, featured, hero,
       "mainImageUrl": mainImage.asset->url,
       "detailImageUrls": detailImages[].asset->url

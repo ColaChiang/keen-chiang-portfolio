@@ -17,7 +17,8 @@ export const artworkType = defineType({
     defineField({name:'category', title:'作品分類', type:'string', options:{list:[
       {title:'繪畫', value:'painting'}, {title:'複合・空間', value:'mixed'}, {title:'工藝・印章', value:'craft'}
     ], layout:'radio'}, initialValue:'painting'}),
-    defineField({name:'sortOrder', title:'排序數字（越小越前面）', type:'number', initialValue:999, validation: Rule => Rule.integer().min(0)}),
+    defineField({name:'sortOrder', title:'作品排列順序（越小越前面）', type:'number', initialValue:999, description:'決定作品在網站上的先後位置；不等於作品顯示編號。', validation: Rule => Rule.integer().min(0)}),
+    defineField({name:'displayNumber', title:'作品顯示編號（選填）', type:'string', description:'例：27、A-01。留空時依網站作品順序自動顯示 01、02、03……；只需填數字或代碼，不用輸入 NO.'}),
     defineField({name:'featured', title:'放到首頁「作品精選」', type:'boolean', initialValue:false}),
     defineField({name:'hero', title:'使用這幅作品作為首頁主視覺', type:'boolean', description:'建議只有一件作品選擇此項', initialValue:false}),
     defineField({name:'legacyId', title:'舊作品編號（匯入用，不需填寫）', type:'number', hidden:true}),

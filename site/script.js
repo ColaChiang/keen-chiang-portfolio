@@ -16,15 +16,21 @@
   const localDate = new Date().getFullYear();
   const asImages = w => (w.images || []).filter(Boolean);
   const photo = src => src || 'assets/work-01.webp';
-  const duo = w => Boolean(w.titleJa && w.titleJa.trim());
-  const formatNumber = w => String(w.legacyId || w.id).padStart(2, '0');
+  // The displayed number is editor-defined or a simple sequence in gallery order.
+  // Never reveal a Sanity internal document ID (UUID) as a public work number.
+  const automaticNumbers = new Map(works.map((w, index) => [w, String(index + 1).padStart(2, '0')]));
+  const formatNumber = w => {
+    const custom = String(w.displayNumber ?? '').trim();
+    return custom
+      ? (/^\d+$/.test(custom) ? custom.padStart(2, '0') : custom)
+      : (automaticNumbers.get(w) || '01');
+  };
 
-  // Preview text intentionally highlights provisional translations until reviewed.
-  function japaneseLabel(w, className) {
-    return duo(w) ? `<span class="${className}" lang="ja">${h(w.titleJa)}</span>` : '';
-  }
-  function englishLabel(w, className) {
-    return w.titleEn ? `<span class="${className}" lang="en">${h(w.titleEn)}</span>` : '';
+  function translationsHTML(w, className) {
+    const ja = String(w.titleJa || '').trim();
+    const en = String(w.titleEn || '').trim();
+    if (!ja && !en) return '';
+    return `<span class="${className}">${ja ? `<span lang="ja">${h(ja)}</span>` : ''}${ja && en ? '<span class="translation-separator"> / </span>' : ''}${en ? `<span lang="en">${h(en)}</span>` : ''}</span>`;
   }
 
   // About: one editable multiline academic history field in Sanity.
@@ -89,8 +95,12 @@
     $('#hero-work-image').alt = `蔣哿恩作品《${title(hero)}》`;
     $('#hero-work-number').textContent = `WORK NO. ${formatNumber(hero)}`;
     $('#hero-work-title').textContent = `〈${title(hero)}〉`;
-    const heroJapanese = $('#hero-work-title-ja');
-    if (heroJapanese) heroJapanese.textContent = hero.titleJa ? ` / ${hero.titleJa}` : ''; 
+    const heroTranslations = $('#hero-work-title-translations');
+    if (heroTranslations) {
+      heroTranslations.textContent = [hero.titleJa, hero.titleEn]
+        .map(value => String(value || '').trim()).filter(Boolean)
+        .map(value => ` / ${value}`).join('');
+    }
   }
   const selected = works.filter(w => w.featured);
   const features = (selected.length ? selected : works).slice(0, 3);
@@ -99,7 +109,7 @@
     return `<button class="feature-item ${index === 0 ? 'feature-primary' : ''}" type="button" data-open-work="${h(w.id)}" aria-label="查看作品 ${h(title(w))}">
       <div class="feature-image ${index === 2 ? 'feature-image-narrow' : ''}"><img src="${h(photo(asImages(w)[0]))}" alt="作品《${h(title(w))}》" loading="lazy"></div>
       <div class="feature-meta"><span class="feature-id">${String(index+1).padStart(2,'0')} / FEATURED</span>
-      <span class="feature-name">${h(title(w))}${japaneseLabel(w,'feature-jp')}</span>
+      <span class="feature-name">${h(title(w))}${translationsHTML(w,'feature-translations')}</span>
       <span class="feature-arrow" aria-hidden="true">↗</span></div>
     </button>`;
   }
@@ -114,7 +124,7 @@
       <div class="work-image"><img loading="lazy" src="${h(photo(asImages(w)[0]))}" alt="蔣哿恩作品《${h(title(w))}》"></div>
       <div class="work-topline"><span>NO. ${h(formatNumber(w))}</span><span>${h(label(w.category))}</span></div>
       <h3 class="work-title">${h(title(w))}</h3>
-      ${japaneseLabel(w,'work-title-ja')}${englishLabel(w,'work-title-en')}
+      ${translationsHTML(w,'work-translations')}
       <p class="work-caption">${h(w.size || w.material || '作品資料待補')} ${w.year ? `<span class="work-year">${h(w.year)}</span>` : ''}</p>
     </button>
   </article>`).join('') : '<p class="works-empty">目前尚未發布作品。</p>';
@@ -196,10 +206,9 @@
     activeWork=work; activeImage=0; previousFocus=document.activeElement;
     $('#dialog-number').textContent = `WORK NO. ${formatNumber(work)}`;
     $('#dialog-title').textContent = title(work);
-    $('#dialog-title-ja').textContent = duo(work) ? work.titleJa : '';
-    $('#dialog-title-ja').hidden = !duo(work);
-    $('#dialog-title-en').textContent = work.titleEn || '';
-    $('#dialog-title-en').hidden = !work.titleEn;
+    const dialogTranslations = $('#dialog-title-translations');
+    dialogTranslations.innerHTML = translationsHTML(work, 'dialog-translations-inner');
+    dialogTranslations.hidden = !dialogTranslations.textContent.trim();
     $('#dialog-category').textContent = label(work.category);
     // Give Japanese material as a second line only when there is an actual translation.
     const material = $('#dialog-material');
