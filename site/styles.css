@@ -445,7 +445,8 @@ img{display:block;max-width:100%}
   .site-header-inner .header-end{display:none}
 }
 
-/* Original hand-drawn travelling elder (no AI redrawing or sharpening). */
+/* The original hand-drawn traveller appears as small marks in the page margins.
+   These ornaments are not part of the content flow and do not catch clicks. */
 .brand-mascot{
   display:block;
   flex:0 0 auto;
@@ -453,28 +454,86 @@ img{display:block;max-width:100%}
   height:48px;
   object-fit:contain;
 }
+.about-section,.archive-section,.manifesto,.selected-section,.works-section{
+  position:relative;
+  overflow:visible;
+}
+.elder-spot{
+  position:absolute;
+  display:block;
+  width:36px;
+  height:auto;
+  max-width:none;
+  pointer-events:none;
+  user-select:none;
+  z-index:1;
+}
+.elder-spot--about{
+  width:40px;
+  top:29px;
+  right:-28px;
+  transform:rotate(6deg);
+}
+.elder-spot--archive{
+  width:32px;
+  top:38%;
+  left:-29px;
+  transform:rotate(-8deg);
+}
+.elder-spot--manifesto{
+  width:35px;
+  top:-23px;
+  right:-27px;
+  transform:rotate(8deg);
+}
+.elder-spot--selected{
+  width:40px;
+  right:-29px;
+  bottom:95px;
+  transform:rotate(-5deg);
+}
+.elder-spot--works{
+  width:34px;
+  left:-28px;
+  top:60px;
+  transform:rotate(5deg);
+}
+/* Footer figure: same size as the navbar figure, walking past the container edge. */
 .footer{
   position:relative;
-  min-height:135px;
-  padding-right:106px;
+  overflow:visible;
+  min-height:0;
+  padding-right:0;
+  padding-bottom:54px;
 }
 .footer-mascot{
   position:absolute;
-  right:2px;
-  bottom:2px;
-  width:81px;
+  display:block;
+  right:-22px;
+  bottom:-8px;
+  width:34px;
   height:auto;
+  max-width:none;
   pointer-events:none;
   user-select:none;
+  transform:rotate(-6deg);
 }
 @media(max-width:840px){
   .brand-mascot{width:29px;height:42px}
-  .footer{min-height:130px;padding-right:85px}
-  .footer-mascot{width:69px;right:0;bottom:1px}
+  .elder-spot--about{width:28px;right:-10px;top:27px}
+  .elder-spot--archive{width:25px;left:-11px;top:33%}
+  .elder-spot--manifesto{width:27px;right:-10px;top:-16px}
+  .elder-spot--selected{width:29px;right:-11px;bottom:62px}
+  .elder-spot--works{width:25px;left:-10px;top:46px}
+  .footer{min-height:0;padding-right:0;padding-bottom:57px}
+  .footer-mascot{width:29px;right:-13px;bottom:-7px}
+}
+@media(max-width:480px){
+  /* Keep the small-screen margins uncluttered and leave the content readable. */
+  .elder-spot--archive,.elder-spot--works{display:none}
 }
 @media(max-width:390px){
   .brand{gap:9px}
   .brand-mascot{width:26px;height:38px}
-  .footer{padding-right:75px}
-  .footer-mascot{width:61px}
+  .footer-mascot{width:26px;right:-12px}
 }
