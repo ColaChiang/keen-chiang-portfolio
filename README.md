@@ -1,20 +1,23 @@
 # CHIANG KE EN｜蔣哿恩 藝術家個人網站
 
-日系留白風格的藝術家作品網站，使用 Sanity CMS 維護作品、照片、展覽與獲獎紀錄。
+日系藝術家作品集，作品與經歷透過 Sanity CMS 管理。
 
-- Sanity Studio：[keen-chiang.sanity.studio](https://keen-chiang.sanity.studio/)
-- Sanity Project ID：`zh0kxksu`
+- Sanity Studio：https://keen-chiang.sanity.studio/
+- Project ID：`zh0kxksu`
 - Dataset：`production`
 
-## 網站部署
+## 網站專案
 
-使用 Vercel 匯入此 GitHub Repository，將 **Root Directory** 設為 `site`，Framework Preset 設為 **Other**，Build Command 為 `npm run build`，Output Directory 為 `dist`。
+完整網站包括 `site/`（作品展示）與 `studio/`（Sanity 資料結構）。請將先前下載並解壓縮的完整專案檔案提交至本儲存庫。請勿上傳 `node_modules`、`dist` 或任何含密碼／Token 的 `.env` 檔。
 
-在 Vercel Environment Variables 新增：
+目前本儲存庫只有部分初始檔案；完成完整上傳後才能進行 Vercel 部署。
 
-- `SANITY_PROJECT_ID=zh0kxksu`
-- `SANITY_DATASET=production`
+## Vercel 建議設定
 
-Sanity Studio 用自己的 Sanity 帳號管理，網站只使用公開的已發布資料，不要將 API token、密碼或本機 `.env` 檔案上傳到 GitHub。
+- Framework Preset: Other
+- Root Directory: `site`
+- Build Command: `npm run build`
+- Output Directory: `dist`
+- Environment Variables: `SANITY_PROJECT_ID=zh0kxksu`、`SANITY_DATASET=production`
 
-> 目前正在上傳網站程式及圖片，請在完整檔案上傳後再進行 Vercel 部署。
+部署後，請到 Sanity Manage 的 API → CORS Origins，允許實際 Vercel 網站的來源網址。
