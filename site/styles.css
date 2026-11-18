@@ -344,3 +344,81 @@ img{display:block;max-width:100%}
 .feature-jp{display:block;font-family:var(--serif);font-size:11px;color:#8d9489;line-height:1.6;margin-top:5px;font-weight:400}
 .material-jp{display:block;color:#939990;font-size:11px;line-height:1.7;margin-top:6px}
 .works-empty{font-family:var(--serif);color:#8f978d;padding:70px 10px;text-align:center}
+
+/* 2026-11: Compact side-by-side awards and exhibitions (no tabs or row rules). */
+.experience-columns{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:start;
+  column-gap:clamp(30px,5vw,72px);
+}
+.experience-column{min-width:0}
+.experience-column-title{
+  font-family:var(--serif);
+  font-size:clamp(19px,2vw,25px);
+  font-weight:500;
+  color:var(--ink);
+  letter-spacing:.045em;
+  margin:0 0 18px;
+  padding:0 0 15px;
+  border-bottom:1px solid var(--hairline);
+}
+.experience-column-title span{
+  display:inline-block;
+  font-family:var(--sans);
+  font-size:10px;
+  font-weight:400;
+  color:#9ba197;
+  letter-spacing:.12em;
+  margin-left:9px;
+}
+.archive-section .experience-list{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  grid-template-columns:none;
+  gap:6px;
+  padding:0;
+  margin:0;
+  border:0;
+}
+.archive-section .experience-item{
+  display:flex;
+  align-items:baseline;
+  gap:11px;
+  min-width:0;
+  margin:0;
+  padding:0;
+  border:0;
+}
+.archive-section .experience-year{
+  display:block;
+  flex:0 0 36px;
+  width:36px;
+  font-size:11px;
+  line-height:1.8;
+  color:#929b90;
+  letter-spacing:.025em;
+}
+.archive-section .experience-text{
+  display:block;
+  flex:1;
+  min-width:0;
+  font-family:var(--serif);
+  font-size:13px;
+  line-height:1.75;
+  letter-spacing:.015em;
+  overflow-wrap:anywhere;
+}
+.archive-section .experience-empty{font-family:var(--serif);font-size:13px;color:#8d968d}
+@media(max-width:840px){
+  .experience-columns{grid-template-columns:1fr;gap:43px}
+  .experience-column-title{margin-bottom:17px;font-size:23px}
+  .archive-section .experience-list{gap:6px}
+  .archive-section .experience-text{font-size:13px;line-height:1.8}
+}
+@media(max-width:420px){
+  .archive-section .experience-item{gap:9px}
+  .archive-section .experience-year{flex-basis:35px;width:35px;font-size:10px}
+  .archive-section .experience-text{font-size:12px;line-height:1.8}
+}

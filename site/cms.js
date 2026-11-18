@@ -13,7 +13,7 @@ window.loadPortfolio = async function loadPortfolio() {
       "detailImageUrls": detailImages[].asset->url
     },
     "experiences": *[_type == "experience"] | order(year desc, sortOrder asc, _createdAt asc) {
-      _id, year, text, kind, sortOrder
+      _id, year, text, kind, sortOrder, displayOrder, showOnWebsite
     },
     "artist": *[_type == "artistProfile" && _id == "artist-profile"][0] {
       nameZh, nameEn, nameJa, bioZh, bioJa, practice, education, exchange, contact,
@@ -42,7 +42,7 @@ window.loadPortfolio = async function loadPortfolio() {
     return {
       ...local,
       works,
-      experiences: (r.experiences || []).map(e => ({year: e.year, text: e.text, kind: e.kind})),
+      experiences: (r.experiences || []).map(e => ({_id: e._id, year: e.year, text: e.text, kind: e.kind, sortOrder: e.sortOrder, displayOrder: e.displayOrder, showOnWebsite: e.showOnWebsite})),
       artist: r.artist || local.artist,
       source: 'sanity'
     };

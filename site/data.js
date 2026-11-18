@@ -522,82 +522,187 @@ window.PORTFOLIO_DATA = {
       "hero": false
     }
   ],
-  "exhibitions": [
+  "awardEntries": [
     {
-      "year": "2026",
-      "items": [
-        "日本海外研修成果作品展",
-        "膠彩・金箔短期工作坊成果發表美術展",
-        "《拾光・藏物》展"
-      ]
+      "id": "exp-award-2023-01",
+      "year": 2023,
+      "text": "台灣藝術大學書畫藝術學系 校慶美展 水墨類 第一名",
+      "kind": "award",
+      "sourceText": "國立臺灣藝術大學書畫藝術學系 校慶美展 水墨類 第一名",
+      "defaultOrder": 10
     },
     {
-      "year": "2025",
-      "items": [
-        "《唯墨視界》聯展 — 台藝大藝術創作聚合",
-        "《無界》台日交流美術展",
-        "藝術新聲 The Young Voices — 藝術學系優秀畢業生推薦展",
-        "ONE ART TAIPEI 藝術台北 — JR 東日本大飯店"
-      ]
+      "id": "exp-award-2024-01",
+      "year": 2024,
+      "text": "台灣藝術大學書畫藝術學系 王陳靜文 首獎",
+      "kind": "award",
+      "sourceText": "國立臺灣藝術大學書畫藝術學系 王陳靜文 首獎",
+      "defaultOrder": 20
     },
     {
-      "year": "2024",
-      "items": [
-        "STAART Illustration Art Fair 亞洲插畫藝術博覽會",
-        "台中藝術博覽會",
-        "《夜裡，關於「」的白日夢》— 中正紀念堂",
-        "鍾鼎藝術 藝術家邀請展",
-        "「角板山之美」水墨寫生聯展"
-      ]
+      "id": "exp-award-2023-02",
+      "year": 2023,
+      "text": "桃城美展 墨彩類 優選獎",
+      "kind": "award",
+      "sourceText": "桃城美展 墨彩類 優選獎",
+      "defaultOrder": 30
     },
     {
-      "year": "2023",
-      "items": [
-        "《跨域對話》港台青年交流展",
-        "STAART Illustration Art Fair 亞洲插畫藝術博覽會",
-        "中部美展",
-        "桃城美展",
-        "磺溪美展",
-        "《停・看・聽》校外聯展"
-      ]
+      "id": "exp-award-2024-02",
+      "year": 2024,
+      "text": "南瀛獎 入圍",
+      "kind": "award",
+      "sourceText": "南瀛獎 入圍",
+      "defaultOrder": 40
     },
     {
-      "year": "2022",
-      "items": [
-        "第 26 回日本彩華國際水墨畫・墨彩畫展",
-        "國際彩墨夢想藝術展",
-        "《墨契》聯展"
-      ]
+      "id": "exp-award-2024-03",
+      "year": 2024,
+      "text": "台灣藝術大學書畫藝術學系 師生美展 書法類 佳作",
+      "kind": "award",
+      "sourceText": "國立臺灣藝術大學書畫藝術學系 師生美展 書法類 佳作",
+      "defaultOrder": 50
+    },
+    {
+      "id": "exp-award-2024-04",
+      "year": 2024,
+      "text": "「角板山之美」水墨寫生比賽 佳作",
+      "kind": "award",
+      "sourceText": "「角板山之美」水墨寫生比賽 佳作",
+      "defaultOrder": 60
+    },
+    {
+      "id": "exp-award-2023-03",
+      "year": 2023,
+      "text": "台灣藝術大學書畫藝術學系 師生美展 水墨類 佳作",
+      "kind": "award",
+      "sourceText": "國立臺灣藝術大學書畫藝術學系 師生美展 水墨類 佳作",
+      "defaultOrder": 70
+    },
+    {
+      "id": "exp-award-2022-01",
+      "year": 2022,
+      "text": "台灣藝術大學書畫藝術學系 校慶美展 水墨類 佳作",
+      "kind": "award",
+      "sourceText": "國立臺灣藝術大學書畫藝術學系 校慶美展 水墨類 佳作",
+      "defaultOrder": 80
+    },
+    {
+      "id": "exp-award-2022-02",
+      "year": 2022,
+      "text": "第26回 日本彩華国際水墨画·墨彩画展 奨励賞",
+      "kind": "award",
+      "sourceText": "第 26 回 日本彩華國際水墨畫・墨彩畫展 奨励賞",
+      "defaultOrder": 90
+    },
+    {
+      "id": "exp-award-2022-03",
+      "year": 2022,
+      "text": "第二十一屆國際彩墨新人賞 水墨類 佳作",
+      "kind": "award",
+      "sourceText": "第二十一屆國際彩墨新人賞 水墨類 佳作",
+      "defaultOrder": 100
     }
   ],
-  "awards": [
+  "exhibitionEntries": [
     {
-      "year": "2024",
-      "items": [
-        "國立臺灣藝術大學書畫藝術學系 王陳靜文 首獎",
-        "南瀛獎 入圍",
-        "國立臺灣藝術大學書畫藝術學系 師生美展 書法類 佳作",
-        "「角板山之美」水墨寫生比賽 佳作"
-      ]
+      "id": "exp-exhibition-2025-01",
+      "year": 2025,
+      "text": "《唯墨視界》聯展-台藝大藝術創作聚合",
+      "kind": "exhibition",
+      "sourceText": "《唯墨視界》聯展 — 台藝大藝術創作聚合",
+      "defaultOrder": 10
     },
     {
-      "year": "2023",
-      "items": [
-        "國立臺灣藝術大學書畫藝術學系 校慶美展 水墨類 第一名",
-        "桃城美展 墨彩類 優選獎",
-        "國立臺灣藝術大學書畫藝術學系 師生美展 水墨類 佳作"
-      ]
+      "id": "exp-exhibition-2025-02",
+      "year": 2025,
+      "text": "《無界》台日交流美術展",
+      "kind": "exhibition",
+      "sourceText": "《無界》台日交流美術展",
+      "defaultOrder": 20
     },
     {
-      "year": "2022",
-      "items": [
-        "國立臺灣藝術大學書畫藝術學系 校慶美展 水墨類 佳作",
-        "第 26 回 日本彩華國際水墨畫・墨彩畫展 奨励賞",
-        "第二十一屆國際彩墨新人賞 水墨類 佳作"
-      ]
+      "id": "exp-exhibition-2025-03",
+      "year": 2025,
+      "text": "藝術新聲the Young Voices藝術學系優秀畢業生推薦展",
+      "kind": "exhibition",
+      "sourceText": "藝術新聲 The Young Voices — 藝術學系優秀畢業生推薦展",
+      "defaultOrder": 30
+    },
+    {
+      "id": "exp-exhibition-2025-04",
+      "year": 2025,
+      "text": "ONE ART TAIPEI 藝術台北 JR東日本大飯店",
+      "kind": "exhibition",
+      "sourceText": "ONE ART TAIPEI 藝術台北 — JR 東日本大飯店",
+      "defaultOrder": 40
+    },
+    {
+      "id": "exp-exhibition-2024-01",
+      "year": 2024,
+      "text": "STAART Illustration Art Fair亞洲插畫藝術博覽會",
+      "kind": "exhibition",
+      "sourceText": "STAART Illustration Art Fair 亞洲插畫藝術博覽會",
+      "defaultOrder": 50
+    },
+    {
+      "id": "exp-exhibition-2024-02",
+      "year": 2024,
+      "text": "台中藝術博覽會",
+      "kind": "exhibition",
+      "sourceText": "台中藝術博覽會",
+      "defaultOrder": 60
+    },
+    {
+      "id": "exp-exhibition-2024-03",
+      "year": 2024,
+      "text": "《夜裡，關於「」的白日夢》中正紀念堂展覽",
+      "kind": "exhibition",
+      "sourceText": "《夜裡，關於「」的白日夢》— 中正紀念堂",
+      "defaultOrder": 70
+    },
+    {
+      "id": "exp-exhibition-2024-04",
+      "year": 2024,
+      "text": "鍾鼎藝術藝術家邀請展",
+      "kind": "exhibition",
+      "sourceText": "鍾鼎藝術 藝術家邀請展",
+      "defaultOrder": 80
+    },
+    {
+      "id": "exp-exhibition-2024-05",
+      "year": 2024,
+      "text": "「角板山之美」水墨寫生聯展",
+      "kind": "exhibition",
+      "sourceText": "「角板山之美」水墨寫生聯展",
+      "defaultOrder": 90
+    },
+    {
+      "id": "exp-exhibition-2023-01",
+      "year": 2023,
+      "text": "「跨域對話」港台青年交流展",
+      "kind": "exhibition",
+      "sourceText": "《跨域對話》港台青年交流展",
+      "defaultOrder": 100
+    },
+    {
+      "id": "exp-exhibition-2023-02",
+      "year": 2023,
+      "text": "STAART Illustration Art Fair亞洲插畫藝術博覽會",
+      "kind": "exhibition",
+      "sourceText": "STAART Illustration Art Fair 亞洲插畫藝術博覽會",
+      "defaultOrder": 110
+    },
+    {
+      "id": "exp-exhibition-2022-01",
+      "year": 2022,
+      "text": "第26回 日本彩華国際水墨画·墨彩画展",
+      "kind": "exhibition",
+      "sourceText": "第 26 回日本彩華國際水墨畫・墨彩畫展",
+      "defaultOrder": 120
     }
   ],
-  "categoryNames": {
+    "categoryNames": {
     "painting": "繪畫",
     "mixed": "複合・空間",
     "craft": "工藝・印章"

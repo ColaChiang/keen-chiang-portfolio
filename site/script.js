@@ -121,16 +121,48 @@
   });
   $('#gallery-count').textContent = `${works.length} WORKS`;
 
-  // Exhibition and award entries share one list: never split into tabs or year headings.
-  const experienceRows = data.source === 'sanity' ? [...(data.experiences || [])] : [
-    ...data.exhibitions.flatMap(g => g.items.map((text, idx) => ({year: Number(g.year), text, sortOrder:idx,kind:'exhibition'}))),
-    ...data.awards.flatMap(g => g.items.map((text, idx) => ({year: Number(g.year), text, sortOrder:100+idx,kind:'award'})))
+  // Two compact columns: user-selected award and exhibition records.
+  // Older records absent from the supplied shortlist remain in Sanity; they can
+  // be re-enabled by turning on "顯示在網站上" in the Studio.
+  const selectedExperiences = [
+    ...(data.awardEntries || []),
+    ...(data.exhibitionEntries || [])
   ];
-  experienceRows.sort((a,b) => Number(b.year)-Number(a.year) || (a.sortOrder ?? 0)-(b.sortOrder ?? 0));
-  $('#experience-list').innerHTML = experienceRows.length ? experienceRows.map(item => `<li class="experience-item">
-     <time class="experience-year" datetime="${h(item.year)}">${h(item.year)}</time>
-     <span class="experience-text">${h(item.text)}</span>
-   </li>`).join('') : '<li class="experience-item">目前尚無公開紀錄</li>';
+  const originalById = new Map(selectedExperiences.map(entry => [entry.id, entry]));
+  const initiallyHiddenIds = new Set(["exp-exhibition-2026-01","exp-exhibition-2026-02","exp-exhibition-2026-03","exp-exhibition-2023-03","exp-exhibition-2023-04","exp-exhibition-2023-05","exp-exhibition-2023-06","exp-exhibition-2022-02","exp-exhibition-2022-03"]);
+  const rawExperiences = data.source === 'sanity' ? (data.experiences || []) : selectedExperiences;
+  const experienceRows = rawExperiences
+    .filter(item => item.kind === 'award' || item.kind === 'exhibition')
+    .filter(item => item.showOnWebsite === true ||
+      (item.showOnWebsite !== false && !initiallyHiddenIds.has(item._id || item.id)))
+    .map(item => {
+      const preset = originalById.get(item._id || item.id);
+      const isOriginalImportedText = preset && item.text === preset.sourceText;
+      return {
+        ...item,
+        // Use the requested Chinese wording until edited in Sanity.
+        text: isOriginalImportedText ? preset.text : item.text,
+        displayOrder: item.displayOrder != null && Number.isFinite(Number(item.displayOrder))
+          ? Number(item.displayOrder)
+          : (preset ? preset.defaultOrder : 10000)
+      };
+    });
+
+  const renderExperienceColumn = (kind, selector) => {
+    const items = experienceRows
+      .filter(item => item.kind === kind)
+      .sort((a, b) => a.displayOrder - b.displayOrder ||
+        Number(b.year || 0) - Number(a.year || 0) ||
+        String(a._id || a.id || '').localeCompare(String(b._id || b.id || '')));
+    $(selector).innerHTML = items.length
+      ? items.map(item => `<li class="experience-item">
+          <time class="experience-year" datetime="${h(item.year)}">${h(item.year)}</time>
+          <span class="experience-text">${h(item.text)}</span>
+        </li>`).join('')
+      : '<li class="experience-item experience-empty">尚無公開紀錄</li>';
+  };
+  renderExperienceColumn('award', '#award-list');
+  renderExperienceColumn('exhibition', '#exhibition-list');
 
   // Accessible artwork dialog: main picture, any detail images, bilingual names, material, size and year.
   const dialog = $('#work-dialog');
