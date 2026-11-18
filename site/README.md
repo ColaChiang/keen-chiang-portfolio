@@ -24,3 +24,19 @@
 - 作品資料新增「作品顯示編號（選填）」欄位，可填 `27`、`A-01` 等。留白時前台依作品排列順序自動編為 `01`、`02`、`03`……，不再公開 Sanity 的內部 UUID。
 - 「作品排列順序」控制呈現先後，「作品顯示編號」控制顯示字樣，兩者獨立。
 - 新的後台編輯欄位需在本機 `studio/` 執行一次 `npm run deploy`；內容更新仍只需在 Sanity 按 Publish。
+
+## Mobile-first responsive layout (2026-11-18)
+
+The site prioritizes phone use with a separate `responsive.css` loaded after the original desktop stylesheet. This file is included in Vercel `dist` by `build.mjs`.
+
+- Up to 359px: compact header, single-column work gallery.
+- 360-599px: two-column uncropped work grid and single-column featured artworks.
+- 600-840px: three-column work grid and two-column secondary featured works.
+- 841px and above: original desktop art direction, with compact-navigation spacing through 1100px.
+- Awards and exhibitions stack vertically on phones/tablets instead of shrinking two columns.
+- Gallery filters scroll horizontally without causing page-wide overflow.
+- Fullscreen portrait-phone artwork detail viewer with 46px close button, 48px photo controls, horizontal touch swipe, and full-image `object-fit:contain`. On short landscape screens the viewer becomes side-by-side.
+- Tap targets and safe-area margins are enlarged for touch screens. Original hand-drawn elder decorations remain purely decorative.
+- To check locally: `cd site`, `npm run build`, then `npm start`. Sanity Studio is unchanged.
+
+Smoke-tested using a headless Chromium rendering of the prior local site snapshot at 320, 360, 375, 390, 430, 600, 768, 840 and 1024px (no document-wide horizontal overflow); the production Vercel deployment still needs independent live-browser confirmation.

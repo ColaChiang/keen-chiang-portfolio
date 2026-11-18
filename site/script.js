@@ -231,6 +231,27 @@
   thumbs.addEventListener('click',e=>{const target=e.target.closest('[data-image-index]'); if(target)setImage(Number(target.dataset.imageIndex));});
   prev.addEventListener('click',()=>setImage(activeImage-1));
   next.addEventListener('click',()=>setImage(activeImage+1));
+
+  // Swipe horizontally across the artwork to browse details on phones.
+  // Vertical movement is ignored so the user can still scroll naturally.
+  const imageStage = $('.dialog-image-stage', dialog);
+  let swipeStart = null;
+  imageStage.addEventListener('touchstart', e => {
+    if (!dialog.open || e.touches.length !== 1) { swipeStart = null; return; }
+    swipeStart = {x:e.touches[0].clientX, y:e.touches[0].clientY};
+  }, {passive:true});
+  imageStage.addEventListener('touchend', e => {
+    if (!swipeStart || !dialog.open || e.changedTouches.length !== 1) {
+      swipeStart = null; return;
+    }
+    const dx = e.changedTouches[0].clientX - swipeStart.x;
+    const dy = e.changedTouches[0].clientY - swipeStart.y;
+    swipeStart = null;
+    if (Math.abs(dx) >= 48 && Math.abs(dx) > Math.abs(dy) * 1.25) {
+      setImage(activeImage + (dx < 0 ? 1 : -1));
+    }
+  }, {passive:true});
+  imageStage.addEventListener('touchcancel', () => { swipeStart = null; }, {passive:true});
   $('#dialog-close').addEventListener('click',()=>dialog.close());
   dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
   dialog.addEventListener('keydown',e=>{

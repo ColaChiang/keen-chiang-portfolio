@@ -4,7 +4,7 @@ const root = import.meta.dirname || path.dirname(new URL(import.meta.url).pathna
 const dist = path.join(root, 'dist');
 fs.rmSync(dist, {force: true, recursive: true});
 fs.mkdirSync(dist, {recursive: true});
-for (const file of ['index.html', 'styles.css', 'data.js', 'cms.js', 'script.js']) {
+for (const file of ['index.html', 'styles.css', 'responsive.css', 'data.js', 'cms.js', 'script.js']) {
   fs.copyFileSync(path.join(root, file), path.join(dist, file));
 }
 fs.cpSync(path.join(root, 'assets'), path.join(dist, 'assets'), {recursive: true});
