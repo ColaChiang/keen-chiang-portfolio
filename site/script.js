@@ -121,39 +121,34 @@
   });
   $('#gallery-count').textContent = `${works.length} WORKS`;
 
-  // Two compact columns: user-selected award and exhibition records.
-  // Older records absent from the supplied shortlist remain in Sanity; they can
-  // be re-enabled by turning on "顯示在網站上" in the Studio.
-  const selectedExperiences = [
-    ...(data.awardEntries || []),
-    ...(data.exhibitionEntries || [])
-  ];
-  const originalById = new Map(selectedExperiences.map(entry => [entry.id, entry]));
-  const initiallyHiddenIds = new Set(["exp-exhibition-2026-01","exp-exhibition-2026-02","exp-exhibition-2026-03","exp-exhibition-2023-03","exp-exhibition-2023-04","exp-exhibition-2023-05","exp-exhibition-2023-06","exp-exhibition-2022-02","exp-exhibition-2022-03"]);
-  const rawExperiences = data.source === 'sanity' ? (data.experiences || []) : selectedExperiences;
-  const experienceRows = rawExperiences
-    .filter(item => item.kind === 'award' || item.kind === 'exhibition')
-    .filter(item => item.showOnWebsite === true ||
-      (item.showOnWebsite !== false && !initiallyHiddenIds.has(item._id || item.id)))
-    .map(item => {
-      const preset = originalById.get(item._id || item.id);
-      const isOriginalImportedText = preset && item.text === preset.sourceText;
-      return {
-        ...item,
-        // Use the requested Chinese wording until edited in Sanity.
-        text: isOriginalImportedText ? preset.text : item.text,
-        displayOrder: item.displayOrder != null && Number.isFinite(Number(item.displayOrder))
-          ? Number(item.displayOrder)
-          : (preset ? preset.defaultOrder : 10000)
-      };
-    });
+  // Show every published experience by default, in two compact columns.
+  // Sanity content is authoritative. Editors can hide records explicitly using
+  // "顯示在網站上" and optionally assign a custom website order.
+  const experienceRows = data.source === 'sanity'
+    ? (data.experiences || [])
+    : [...(data.awardEntries || []), ...(data.exhibitionEntries || [])];
+
+  const manualPosition = item => {
+    if (item.displayOrder == null || item.displayOrder === '') return null;
+    const value = Number(item.displayOrder);
+    return Number.isFinite(value) ? value : null;
+  };
 
   const renderExperienceColumn = (kind, selector) => {
     const items = experienceRows
-      .filter(item => item.kind === kind)
-      .sort((a, b) => a.displayOrder - b.displayOrder ||
-        Number(b.year || 0) - Number(a.year || 0) ||
-        String(a._id || a.id || '').localeCompare(String(b._id || b.id || '')));
+      .filter(item => item.kind === kind && item.showOnWebsite !== false)
+      .sort((a, b) => {
+        const aPosition = manualPosition(a);
+        const bPosition = manualPosition(b);
+        if (aPosition != null && bPosition != null && aPosition !== bPosition) {
+          return aPosition - bPosition;
+        }
+        if (aPosition != null && bPosition == null) return -1;
+        if (aPosition == null && bPosition != null) return 1;
+        return Number(b.year || 0) - Number(a.year || 0)
+          || Number(a.sortOrder || 0) - Number(b.sortOrder || 0)
+          || String(a._id || a.id || '').localeCompare(String(b._id || b.id || ''));
+      });
     $(selector).innerHTML = items.length
       ? items.map(item => `<li class="experience-item">
           <time class="experience-year" datetime="${h(item.year)}">${h(item.year)}</time>
